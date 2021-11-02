@@ -10,6 +10,5 @@ object RetrofitInstance {
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
-
     val shibeService: ShibeService = retrofit.create(ShibeService::class.java)
 }
