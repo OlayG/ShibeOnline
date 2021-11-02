@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import com.olayg.shibeonline.R
+import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Use this method to get the images
         viewModel.getImages(10)
