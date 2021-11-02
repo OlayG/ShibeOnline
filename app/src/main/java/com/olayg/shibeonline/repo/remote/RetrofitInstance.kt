@@ -5,11 +5,18 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitInstance {
 
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://shibe.online")
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
+    private val retrofit: Retrofit = Retrofit.Builder() // Retrofit
+        .baseUrl("http://shibe.online") // Retrofit
+        .addConverterFactory( // Retrofit
+
+            MoshiConverterFactory.create() // Moshi
+
+        ).build() // Retrofit
 
 
-    val shibeService: ShibeService = retrofit.create(ShibeService::class.java)
+    val shibeService: ShibeService = retrofit.create( // Retrofit
+
+        ShibeService::class.java // A Java Class Reference
+
+    )
 }
