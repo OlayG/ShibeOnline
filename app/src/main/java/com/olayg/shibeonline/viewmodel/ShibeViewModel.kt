@@ -13,7 +13,6 @@ class ShibeViewModel : ViewModel() {
     private val _shibes = MutableLiveData<List<String>>()
     val shibes: LiveData<List<String>> get() = _shibes
 
-
     fun getImages(count: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val response = ShibeRepo.getImages(count)
