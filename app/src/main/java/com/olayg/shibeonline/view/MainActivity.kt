@@ -17,8 +17,12 @@ class MainActivity : AppCompatActivity() {
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Use this method to get the images
-        viewModel.getImages(10)
+        val btnGetShibes = binding.btnGetShibes
+
+        btnGetShibes.setOnClickListener {
+            // Use this method to get the images
+            viewModel.getImages(10)
+        }
 
         viewModel.shibes.observe(this) {
             // Here is where your will get the result
