@@ -3,8 +3,10 @@ package com.olayg.shibeonline.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.activity.viewModels
 import com.olayg.shibeonline.R
+import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -12,15 +14,20 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<ShibeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         // Use this method to get the images
-        viewModel.getImages(10)
+        viewModel.getImages(100)
 
         viewModel.shibes.observe(this) {
-            // Here is where your will get the result
-            Log.d("MainActivity", "onCreate: $it")
+
+            binding.textView.text = it.joinToString("\n\n")
+
         }
     }
 }
