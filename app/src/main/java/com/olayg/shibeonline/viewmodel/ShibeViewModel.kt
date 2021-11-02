@@ -17,8 +17,8 @@ class ShibeViewModel : ViewModel() {
     fun getImages(count: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val response = ShibeRepo.getImages(count)
-            val list = if (response.isSuccessful && !response.body().isNullOrEmpty())
-                response.body()
+            var list = if (response.isSuccessful && !response.body().isNullOrEmpty())
+                response.body() as List<String>
             else listOf("ERROR")
             _shibes.postValue(list)
         }
