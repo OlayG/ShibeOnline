@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity()  {
         setContentView(binding.root)
 
         // Use this method to get the images
-        var images: List<String> = viewModel.getImages(10)
+        viewModel.getImages(10)
 
         viewModel.shibes.observe(this) {
             // Here is where your will get the result
