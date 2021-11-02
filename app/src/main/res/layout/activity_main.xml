@@ -7,12 +7,98 @@
     tools:context=".view.MainActivity">
 
     <TextView
+        android:id="@+id/prompt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="How Many?"
+        app:layout_constraintBottom_toTopOf="@id/countField"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/countField"
+        android:text="15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prompt1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/prompt2"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/prompt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="URL"
+        app:layout_constraintBottom_toTopOf="@id/btnUrlTrue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/countField" />
+
+    <Button
+        android:id="@+id/btnUrlTrue"
+        android:text="TRUE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prompt2"
+        app:layout_constraintBottom_toTopOf="@id/prompt3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnUrlFalse"/>
+
+    <Button
+        android:id="@+id/btnUrlFalse"
+        android:text="FALSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prompt2"
+        app:layout_constraintBottom_toTopOf="@id/prompt3"
+        app:layout_constraintLeft_toRightOf="@id/btnUrlTrue"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/prompt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HTTPS"
+        app:layout_constraintBottom_toTopOf="@id/btnUrlTrue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnHttpTrue" />
+
+    <Button
+        android:id="@+id/btnHttpTrue"
+        android:text="TRUE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prompt3"
+        app:layout_constraintBottom_toTopOf="@id/btnGo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnHttpFalse"/>
+
+    <Button
+        android:id="@+id/btnHttpFalse"
+        android:text="FALSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prompt3"
+        app:layout_constraintBottom_toTopOf="@id/btnGo"
+        app:layout_constraintLeft_toRightOf="@id/btnHttpTrue"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btnGo"
+        android:text="GO!!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnHttpTrue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
