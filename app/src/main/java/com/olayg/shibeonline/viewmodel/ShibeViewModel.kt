@@ -20,7 +20,7 @@ class ShibeViewModel : ViewModel() {
             val list = if (response.isSuccessful && !response.body().isNullOrEmpty())
                 response.body()
             else listOf("ERROR")
-            _shibes.postValue(list)
+            _shibes.postValue(list!!)
         }
     }
 }
