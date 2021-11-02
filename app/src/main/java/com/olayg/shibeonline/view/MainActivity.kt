@@ -23,15 +23,12 @@ class MainActivity : AppCompatActivity() {
             n = b.editText1.text.toString().toInt()
             viewModel.getImages(n)
         }
-
-
 //        // Use this method to get the images
 //        viewModel.getImages(10)
 
         viewModel.shibes.observe(this) {
             // Here is where your will get the result
             Log.d("MainActivity", "onCreate: $it")
-            // b.textView.text = it.joinToString("\n\n")
             val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, it)
             b.listView1.adapter = arrayAdapter
         }
