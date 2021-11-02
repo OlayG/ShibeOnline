@@ -14,13 +14,15 @@ class ShibeViewModel : ViewModel() {
     val shibes: LiveData<List<String>> get() = _shibes
 
 
-    fun getImages(count: Int) {
+    fun getImages(count: Int): List<String> {
+        var list: List<String> = listOf("")
         viewModelScope.launch(Dispatchers.IO) {
             val response = ShibeRepo.getImages(count)
-            val list = if (response.isSuccessful && !response.body().isNullOrEmpty())
-                response.body()
+            list = if (response.isSuccessful && !response.body().isNullOrEmpty())
+                response.body() as List<String>
             else listOf("ERROR")
             _shibes.postValue(list)
         }
+        return list
     }
 }
