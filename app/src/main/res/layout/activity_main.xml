@@ -9,7 +9,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/countText"/>
+            android:id="@+id/countText"
+            android:inputType="number"/>
 
     </com.google.android.material.textfield.TextInputLayout>
     <Button
@@ -20,5 +21,5 @@
     <TextView
         android:id="@+id/shibeOutput"
         android:layout_width="match_parent"
-        android:layout_height="200dp"></TextView>
+        android:layout_height="275dp"></TextView>
 </LinearLayout>

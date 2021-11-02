@@ -12,10 +12,11 @@ import com.olayg.shibeonline.viewmodel.ShibeViewModel
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val viewModel by viewModels<ShibeViewModel>()
+    private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         // Use this method to get the images
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel.shibes.observe(this) {
             // Here is where your will get the result
-            var urmom = binding.countText.text
             Log.d("MainActivity", "onCreate: $it")
             var doges = it.toString()
             binding.shibeOutput.text = doges
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
             when(v?.id){
-                R.id.shibeButton -> viewModel.getImages(10)
+                R.id.shibeButton -> viewModel.getImages(binding.countText.text.toString().toInt())
             }
     }
 }
