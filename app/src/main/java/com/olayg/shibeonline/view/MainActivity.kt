@@ -2,10 +2,7 @@ package com.olayg.shibeonline.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import androidx.activity.viewModels
-import com.olayg.shibeonline.R
 import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
 
@@ -29,5 +26,6 @@ class MainActivity : AppCompatActivity() {
             binding.textView.text = it.joinToString("\n\n")
 
         }
+
     }
 }
