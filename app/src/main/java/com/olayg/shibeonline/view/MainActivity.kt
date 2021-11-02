@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.shibes.observe(this) {
             // Here is where your will get the result
             Log.d("MainActivity", "onCreate: $it")
-            binding.shibesList.text = it.joinToString("\n")
+            binding.shibesList.text = it.joinToString("\n\n")
         }
     }
 }
