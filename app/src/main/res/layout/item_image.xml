@@ -9,7 +9,8 @@
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/purple_200" />
+        android:background="@color/purple_200"
+        android:scaleType="fitXY" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_url"

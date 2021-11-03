@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import com.olayg.shibeonline.R
 import com.olayg.shibeonline.adapter.ShibeAdapter
 import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
@@ -37,5 +39,10 @@ class MainActivity : AppCompatActivity() {
             viewModel.getImages(count ?: 1)
         }
         rvImages.adapter = ShibeAdapter()
+        swSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            (rvImages.layoutManager as GridLayoutManager).spanCount = if (isChecked) 2 else 1
+            buttonView.text =
+                if (isChecked) getString(R.string.grid) else getString(R.string.linear)
+        }
     }
 }

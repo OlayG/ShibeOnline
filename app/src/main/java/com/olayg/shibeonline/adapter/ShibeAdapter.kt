@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.olayg.shibeonline.databinding.ItemImageBinding
+import com.olayg.shibeonline.extensions.loadUrl
 
 class ShibeAdapter : RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder>() {
 
@@ -35,7 +36,7 @@ class ShibeAdapter : RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder>() {
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun loadUrl(url: String) = with(binding) {
-            //ivImage.load(url)
+            ivImage.loadUrl(url)
             tvUrl.text = url
         }
 
