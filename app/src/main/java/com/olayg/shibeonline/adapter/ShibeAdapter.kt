@@ -3,6 +3,7 @@ package com.olayg.shibeonline.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.olayg.shibeonline.databinding.ItemImageBinding
 
 class ShibeAdapter : RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder>() {
@@ -37,6 +38,7 @@ class ShibeAdapter : RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder>() {
         fun loadUrl(url: String) = with(binding) {
             //ivImage.load(url)
             tvUrl.text = url
+            Glide.with(root).load(url).into(ivImage)
         }
 
         companion object {
