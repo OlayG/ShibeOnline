@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ShibeOnline</string>
     <string name="fetch">Fetch</string>
+    <string name="switch_view">Switch</string>
 </resources>
