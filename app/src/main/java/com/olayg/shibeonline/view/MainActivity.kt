@@ -10,6 +10,7 @@ import com.olayg.shibeonline.R
 import com.olayg.shibeonline.adapter.ShibeAdapter
 import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,10 +57,11 @@ class MainActivity : AppCompatActivity() {
         btnSwitchLayout.setOnClickListener {
 
             // Cast current layout manager to LayoutManager
-            val manager = (rvImages.layoutManager as RecyclerView.LayoutManager)::class.java
+            // val manager = (rvImages.layoutManager as RecyclerView.LayoutManager)::class.java
+            // manager == LinearLayoutManager::class.java
 
             // If layoutManager is an instance of LinearLayoutManager
-            if (manager == LinearLayoutManager::class.java) {
+            if (rvImages.layoutManager?.javaClass == LinearLayoutManager::class.java) {
 
                 // Create new grid layout manager
                 rvImages.layoutManager = GridLayoutManager(it.context, 2)
