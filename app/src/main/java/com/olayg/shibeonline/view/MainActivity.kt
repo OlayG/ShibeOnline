@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         btnFetch.setOnClickListener {
             val count = binding.etCount.text?.toString()?.toIntOrNull()
             // Use this method to get the images
-            viewModel.getImages(count ?: 1)
+            viewModel.getImages(count ?: 3)
         }
         rvImages.adapter = ShibeAdapter()
     }
