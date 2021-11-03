@@ -6,37 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/edit_text_1"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_count"
         android:layout_width="0dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toTopOf="@id/list_view_1"
-        app:layout_constraintEnd_toStartOf="@id/btn_submit"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/btn_fetch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_weight="2"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/list_view_1"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_fetch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fetch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/edit_text_1"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Submit"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/list_view_1"
-        android:layout_width="0dp"
-        android:layout_height="550dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_images"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/et_count"
+        tools:listitem="@layout/item_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
