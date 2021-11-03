@@ -5,12 +5,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.olayg.shibeonline.R
 import com.olayg.shibeonline.adapter.ShibeAdapter
 import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
