@@ -5,14 +5,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.olayg.shibeonline.R
 import com.olayg.shibeonline.adapter.ShibeAdapter
 import com.olayg.shibeonline.databinding.ActivityMainBinding
 import com.olayg.shibeonline.viewmodel.ShibeViewModel
 
-/**
- * TODO
- * Add a button to switch between LinearLayoutManager and GridLayoutManager
- */
 class MainActivity : AppCompatActivity() {
 
     /**
@@ -57,21 +54,22 @@ class MainActivity : AppCompatActivity() {
 
         btnSwitchLayout.setOnClickListener {
 
+            // If layoutManager is an instance of LinearLayoutManager
             if (rvImages.layoutManager!!::class.java == LinearLayoutManager::class.java) {
 
-                val gridLayoutManager = GridLayoutManager(it.context, 2)
+                // Create new grid layout manager
+                rvImages.layoutManager = GridLayoutManager(it.context, 2)
 
-                gridLayoutManager.spanSizeLookup
-
-                rvImages.layoutManager = gridLayoutManager
-
-                btnSwitchLayout.text = "Linear"
+                // Switch button text
+                btnSwitchLayout.text = getString(R.string.linear)
 
             } else {
 
+                // Create new linear layout manager
                 rvImages.layoutManager = LinearLayoutManager(it.context)
 
-                btnSwitchLayout.text = "Grid"
+                // Switch button text
+                btnSwitchLayout.text = getString(R.string.grid)
 
             }
 
