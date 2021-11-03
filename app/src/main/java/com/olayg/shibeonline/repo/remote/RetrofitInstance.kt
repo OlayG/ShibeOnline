@@ -3,20 +3,23 @@ package com.olayg.shibeonline.repo.remote
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * Singleton that holds services created by Retrofit
+ * @property shibeService ShibeService Instance
+ */
 object RetrofitInstance {
 
-    private val retrofit: Retrofit = Retrofit.Builder() // Retrofit
-        .baseUrl("http://shibe.online") // Retrofit
-        .addConverterFactory( // Retrofit
+    /**
+     * Instance of Retrofit
+     */
+    private val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://shibe.online")
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
 
-            MoshiConverterFactory.create() // Moshi
+    /**
+     * Instance of ShibeService created by Retrofit
+     */
+    val shibeService: ShibeService = retrofit.create(ShibeService::class.java)
 
-        ).build() // Retrofit
-
-
-    val shibeService: ShibeService = retrofit.create( // Retrofit
-
-        ShibeService::class.java // A Java Class Reference
-
-    )
 }

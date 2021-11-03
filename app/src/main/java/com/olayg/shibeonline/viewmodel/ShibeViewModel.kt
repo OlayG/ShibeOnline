@@ -8,36 +8,42 @@ import com.olayg.shibeonline.repo.ShibeRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ShibeViewModel:
+/**
+ * Class that executes methods in coroutines and stores LiveData
+ * @property shibes Getter for list of image urls
+ * @property getImages Get a number of image urls
+ */
+class ShibeViewModel : ViewModel() {
 
-    ViewModel() // Lifecyle
+    private val _shibes = MutableLiveData<List<String>>()
 
-{
+    /**
+     * Getter for list of image urls
+     */
+    val shibes: LiveData<List<String>> get() = _shibes
 
-    // Lifecycle
-    private val _shibes = MutableLiveData<Array<String>>()
-
-    // Lifecycle
-    val shibes: LiveData<Array<String>> get() = _shibes
-
-
+    /**
+     * Get a number of image urls
+     * @param count Number of images to get
+     */
     fun getImages(count: Int) {
 
-        viewModelScope // Lifecycle
-            .launch(
+        // ViewModel / Coroutine Scope
+        viewModelScope.launch(Dispatchers.IO) {
 
-                Dispatchers.IO // CoroutineScope
+            // Response from repo
+            val response = ShibeRepo.getImages(count)
 
-            ) {
+            // Store response body or error
+            val list = if (response.isSuccessful && !response.body().isNullOrEmpty())
+                response.body()
+                else listOf("ERROR")
 
-                // Gets Data From Repo
-                val response = ShibeRepo.getImages(count)
+            // If list is not null, post list to LiveData
+            list?.let { urls -> _shibes.postValue(urls) }
 
-                // HTTP Response body
-                val list = if (response.isSuccessful && !response.body().isNullOrEmpty()) response.body() else arrayOf("ERROR")
+        }
 
-                _shibes.postValue(list!!)
-
-            }
     }
+
 }

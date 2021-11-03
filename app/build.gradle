@@ -1,9 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-
-    // FOR KAPT
-    id 'kotlin-kapt'
+    id 'kotlin-kapt' // FOR KAPT
 }
 
 android {
@@ -43,27 +41,29 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    
 
-    // RETFROFIT
+    // RETROFIT
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
     // MOSHI
-    implementation("com.squareup.moshi:moshi:1.12.0")
-    // CODEGEN
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.12.0")
+    implementation 'com.squareup.moshi:moshi:1.12.0'
 
-    // RETROFIT -> MOSHI
+    // CODEGEN
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.12.0'
+
+    // MOSHI -> RETROFIT
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
-    // VIEWMODELSCOPE - COROUTINESCOPE - JETPACK
+    // LIFECYCLE
     def lifecycle_version = "2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    // FRAGMENT API - JETPACK
+    // FRAGMENT
     def fragment_version = "1.3.6"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
+    // PICASSO
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
