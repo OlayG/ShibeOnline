@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.olayg.shibeonline.R
 import com.olayg.shibeonline.adapter.ShibeAdapter
 import com.olayg.shibeonline.databinding.ActivityMainBinding
@@ -54,8 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         btnSwitchLayout.setOnClickListener {
 
+            // Cast current layout manager to LayoutManager
+            val manager = (rvImages.layoutManager as RecyclerView.LayoutManager)::class.java
+
             // If layoutManager is an instance of LinearLayoutManager
-            if (rvImages.layoutManager!!::class.java == LinearLayoutManager::class.java) {
+            if (manager == LinearLayoutManager::class.java) {
 
                 // Create new grid layout manager
                 rvImages.layoutManager = GridLayoutManager(it.context, 2)
