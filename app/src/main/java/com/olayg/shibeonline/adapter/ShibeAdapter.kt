@@ -38,7 +38,7 @@ class ShibeAdapter : RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder>() {
         fun loadUrl(url: String) = with(binding) {
             //ivImage.load(url)
             tvUrl.text = url
-            Glide.with(binding.root).load(url).into(binding.ivImage)
+            Glide.with(root).load(url).into(ivImage)
         }
 
         companion object {
