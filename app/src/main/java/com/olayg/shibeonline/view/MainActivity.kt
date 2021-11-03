@@ -54,26 +54,22 @@ class MainActivity : AppCompatActivity() {
 
         btnSwitchLayout.setOnClickListener {
 
-            // Cast current layout manager to LayoutManager
-            // val manager = (rvImages.layoutManager as RecyclerView.LayoutManager)::class.java
-            // manager == LinearLayoutManager::class.java
-
             // If layoutManager is an instance of LinearLayoutManager
-            if (rvImages.layoutManager?.javaClass == LinearLayoutManager::class.java) {
-
-                // Create new grid layout manager
-                rvImages.layoutManager = GridLayoutManager(it.context, 2)
-
-                // Switch button text
-                btnSwitchLayout.text = getString(R.string.linear)
-
-            } else {
+            if (rvImages.layoutManager is GridLayoutManager) {
 
                 // Create new linear layout manager
                 rvImages.layoutManager = LinearLayoutManager(it.context)
 
                 // Switch button text
                 btnSwitchLayout.text = getString(R.string.grid)
+
+            } else {
+
+                // Create new grid layout manager
+                rvImages.layoutManager = GridLayoutManager(it.context, 2)
+
+                // Switch button text
+                btnSwitchLayout.text = getString(R.string.linear)
 
             }
 
